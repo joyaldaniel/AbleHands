@@ -1,0 +1,12 @@
+.order-status-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .order-status-card {
+    width: 400px;
+    padding: 32px;
+    text-align: center;
+  }

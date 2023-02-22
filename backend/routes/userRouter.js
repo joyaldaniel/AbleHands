@@ -1,0 +1,27 @@
+ const router = require("express").Router()
+ const userController = require("../controllers/userController")
+ const auth = require("../middlewares/auth")
+ const authAdmin = require("../middlewares/authAdmin")
+
+ router.post('/register',userController.register)
+ router.post('/activation',userController.activateEmail)
+ router.post('/login',userController.login)
+ router.post('/refresh_token',userController.getAccessToken)
+
+ router.post('/forgetpassword',userController.forgotPassword)
+ router.post('/reset',auth,userController.resetPassword)
+ router.post('/userinfo',auth,userController.getUserInfo)
+ router.post('/all_inform',auth,authAdmin,userController.getUserAllInfor)
+ router.post('/logout',userController.logout)
+ router.patch('/updateUser',auth,userController.updateUser)
+ router.patch('/update_role/:id',auth,authAdmin,userController.updateUsersRole)
+ router.delete('/delete/:id',auth,authAdmin,userController.deleteUser)
+ router.post('/getexpert',userController.getexpert)
+ router.post('/getexpertdetails/:id',userController.getexpertdetails)
+ router.post('/paymentdetails',userController.paymentdetails)
+ router.post("/expert_expertprofileDetails",userController.ExpertprofileDetails)
+ router.post("/stripe_payment",userController.stripe)
+//  router.post('/bookingstime',userController.bookingstime)
+//  router.post('/order-status',userController.orderStatus)
+
+ module.exports=router
